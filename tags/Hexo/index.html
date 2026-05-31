@@ -46,7 +46,7 @@
   <link rel="stylesheet" href="../../css/mermaid.css">
 
   <link rel="stylesheet" href="../../css/vs-code.css">
-  <link rel="stylesheet" href="../../css/post.css?v=1780197231458">
+  <link rel="stylesheet" href="../../css/post.css?v=1780197231457">
   <link rel="stylesheet" href="../../css/tag.css">
   <link rel="stylesheet" href="../../css/categories.css">
   <link rel="stylesheet" href="../../css/archive.css">
@@ -84,7 +84,7 @@
         <i class="fas fa-home"></i>
         <span>Home</span>
       </a>
-      <a href="/archives/" class="nav-item active">
+      <a href="/archives/" class="nav-item ">
         <i class="fas fa-archive"></i>
         <span>Archives</span>
       </a>
@@ -92,7 +92,7 @@
         <i class="fas fa-folder"></i>
         <span>Categories</span>
       </a>
-      <a href="/tags/" class="nav-item ">
+      <a href="/tags/" class="nav-item active">
         <i class="fas fa-tags"></i>
         <span>Tags</span>
       </a>
@@ -158,52 +158,28 @@
 </script>
 
 
+
+
 <div class="vscode-container">
   <!-- 左侧资源管理器 -->
   <div class="sidebar-explorer">
     <div class="explorer-section">
       <div class="section-header">
-        <i class="fas fa-clock"></i>
-        <span>ARCHIVES</span>
+        <i class="fas fa-tags"></i>
+        <span>ALL TAGS</span>
       </div>
       <div class="section-content">
         
+          <div class="tag-item active">
+            <i class="fas fa-tag"></i>
+            <a href="">Hexo</a>
+            <span class="count">(1)</span>
+          </div>
         
-          
-          
-          
-        
-          
-          
-          
-        
-        
-        
-          <div class="archive-year">
-            <div class="folder">
-              <i class="fas fa-folder"></i>
-              <span>2026</span>
-              <span class="count">(2)</span>
-            </div>
-            <div class="archive-posts">
-              
-                <div class="file ">
-                  <i class="fas fa-file-alt"></i>
-                  <a href="../../2026/05/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">
-                    05-31 Hexo 维护个人博客的最佳实践
-                    
-                  </a>
-                </div>
-              
-                <div class="file ">
-                  <i class="fas fa-file-alt"></i>
-                  <a href="../../2026/05/31/hello-world/">
-                    05-31 Hello World
-                    
-                  </a>
-                </div>
-              
-            </div>
+          <div class="tag-item ">
+            <i class="fas fa-tag"></i>
+            <a href="../%E8%BF%90%E7%BB%B4/">运维</a>
+            <span class="count">(1)</span>
           </div>
         
       </div>
@@ -214,78 +190,64 @@
   <div class="editor-content">
     <div class="tab-bar">
       <div class="tab active">
-        <i class="fas fa-archive"></i>
-        <span>archives.md</span>
+        <i class="fas fa-tag"></i>
+        <span>tag: Hexo.md</span>
       </div>
     </div>
     
     <div class="content-area">
-      <div class="archive-header">
+      <div class="tag-header">
         <h1>
-          <i class="fas fa-archive"></i>
-          Archives
+          <i class="fas fa-tag"></i>
+          Tag: Hexo
         </h1>
-        <span class="archive-count">2 posts</span>
+        <span class="tag-count">1 posts</span>
       </div>
 
-      <div class="timeline-container">
+      <div class="posts-container">
         
-          <div class="timeline-year">
-            <div class="year-header">
-              <i class="fas fa-calendar-alt"></i>
-              2026
-              <span class="year-count">(2 posts)</span>
+          <div class="post-card">
+            <div class="post-header">
+              <i class="fas fa-file-alt"></i>
+              <span class="post-title">
+                <a href="../../2026/05/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">Hexo 维护个人博客的最佳实践</a>
+              </span>
             </div>
-            <div class="year-posts">
+            
+            <div class="post-meta">
+              <span class="date">
+                <i class="fas fa-calendar-alt"></i>
+                2026-05-31
+              </span>
               
-                <div class="timeline-post">
-                  <div class="post-date">
-                    <i class="fas fa-clock"></i>
-                    05-31
-                  </div>
-                  <div class="post-info">
-                    <a href="../../2026/05/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">
-                      Hexo 维护个人博客的最佳实践
-                      
-                    </a>
-                    <div class="post-meta">
-                      
-                        <span class="category">
-                          <i class="fas fa-folder"></i>
-                          <a class="category-link" href="../../categories/Hexo/">Hexo</a>
-                        </span>
-                      
-                      
-                        <span class="tags">
-                          <i class="fas fa-tags"></i>
-                          <a class="tag-none-link" href="../../tags/Hexo/" rel="tag">Hexo</a>, <a class="tag-none-link" href="../../tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a>
-                        </span>
-                      
-                    </div>
-                  </div>
-                </div>
+                <span class="category">
+                  <i class="fas fa-folder"></i>
+                  <a class="category-link" href="../../categories/Hexo/">Hexo</a>
+                </span>
               
-                <div class="timeline-post">
-                  <div class="post-date">
-                    <i class="fas fa-clock"></i>
-                    05-31
-                  </div>
-                  <div class="post-info">
-                    <a href="../../2026/05/31/hello-world/">
-                      Hello World
-                      
-                    </a>
-                    <div class="post-meta">
-                      
-                      
-                    </div>
-                  </div>
-                </div>
-              
+            </div>
+            
+            <div class="post-excerpt">
+              Hexo 是一个快速、简洁且高效的静态博客框架，非常适合用于搭建个人博客。结合 GitHub Pages 进行托管，可以完全免费地实现博客的部署和维护。
+维护个人博客的最佳实践
+版本控制（重要！）
+Hexo 生成的静态文件在 public 目录，这个目录是不需要提交到 Git 仓库的。
+你应该提交的是源文件（source、themes、_config.yml 等）。
+推荐方法: 使用单独的分支或单...
+            </div>
+            
+            <div class="post-footer">
+              <a href="../../2026/05/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="read-more">
+                <i class="fas fa-code"></i>
+                Read More
+              </a>
             </div>
           </div>
         
       </div>
+
+      
+
     </div>
   </div>
 </div>
@@ -432,7 +394,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <script src="../../js/search.js"></script>
 <script src="../../js/theme-switch.js"></script>
 
-<script src="../../js/password-protect.js?v=1780197231458"></script>
+<script src="../../js/password-protect.js?v=1780197231457"></script>
 
     <script>
       // 移动端菜单切换
