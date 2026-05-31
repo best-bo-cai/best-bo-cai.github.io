@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: BestBoCai's blog
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
-language: en
+author: Best Bo Cai
+language: zh-CN
 timezone: ''
 
 # URL
@@ -41,16 +41,18 @@ external_link:
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
-relative_link: false
+relative_link: true
 future: true
 syntax_highlighter: highlight.js
 highlight:
+  enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace: ''
   wrap: true
-  hljs: false
+  hljs: true
 prismjs:
+  enable: false
   preprocess: true
   line_number: true
   tab_replace: ''
@@ -96,7 +98,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+# theme: landscape
+theme: VSC4T
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
