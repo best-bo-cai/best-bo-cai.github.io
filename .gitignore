@@ -1,8 +1,35 @@
-.DS_Store
-Thumbs.db
+# Hexo 生成的静态文件 (由 hexo g 生成)
+# 这些文件会通过 hexo d 部署到 main 分支，不需要在源码分支重复提交
+public/
+
+# 部署相关的文件
+# hexo-deployer-git 插件生成的缓存文件夹，包含 .git 文件夹
+.deploy_git/
+
+# 缓存文件
 db.json
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# 依赖目录
+# node_modules 包含了所有安装的 npm 包，体积巨大且可通过 npm install 重新生成
 node_modules/
-public/
-.deploy*/
-_multiconfig.yml
+
+# 编辑器和系统临时文件
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 主题特定的依赖 (如果某些主题需要独立安装依赖)
+themes/*/node_modules/
+
+# 可选：本地环境配置 (如果你有本地不想公开的配置)
+# _config.local.yml
+
