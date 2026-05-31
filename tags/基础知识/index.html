@@ -46,7 +46,7 @@
   <link rel="stylesheet" href="../../css/mermaid.css">
 
   <link rel="stylesheet" href="../../css/vs-code.css">
-  <link rel="stylesheet" href="../../css/post.css?v=1780199892688">
+  <link rel="stylesheet" href="../../css/post.css?v=1780199892693">
   <link rel="stylesheet" href="../../css/tag.css">
   <link rel="stylesheet" href="../../css/categories.css">
   <link rel="stylesheet" href="../../css/archive.css">
@@ -170,15 +170,15 @@
       </div>
       <div class="section-content">
         
-          <div class="tag-item ">
+          <div class="tag-item active">
             <i class="fas fa-tag"></i>
-            <a href="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+            <a href="">基础知识</a>
             <span class="count">(1)</span>
           </div>
         
-          <div class="tag-item active">
+          <div class="tag-item ">
             <i class="fas fa-tag"></i>
-            <a href="">Hexo</a>
+            <a href="../Hexo/">Hexo</a>
             <span class="count">(1)</span>
           </div>
         
@@ -203,7 +203,7 @@
     <div class="tab-bar">
       <div class="tab active">
         <i class="fas fa-tag"></i>
-        <span>tag: Hexo.md</span>
+        <span>tag: %u57FA%u7840%u77E5%u8BC6.md</span>
       </div>
     </div>
     
@@ -211,7 +211,7 @@
       <div class="tag-header">
         <h1>
           <i class="fas fa-tag"></i>
-          Tag: Hexo
+          Tag: 基础知识
         </h1>
         <span class="tag-count">1 posts</span>
       </div>
@@ -222,7 +222,7 @@
             <div class="post-header">
               <i class="fas fa-file-alt"></i>
               <span class="post-title">
-                <a href="../../2026/05/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">Hexo 维护个人博客的最佳实践</a>
+                <a href="../../2026/05/31/%E6%96%87%E7%AB%A0%E7%9A%84%20Front%20Matter/">Front Matter 介绍</a>
               </span>
             </div>
             
@@ -240,16 +240,17 @@
             </div>
             
             <div class="post-excerpt">
-              Hexo 是一个快速、简洁且高效的静态博客框架，非常适合用于搭建个人博客。结合 GitHub Pages 进行托管，可以完全免费地实现博客的部署和维护。
-维护个人博客的最佳实践
-版本控制（重要！）
-Hexo 生成的静态文件在 public 目录，这个目录是不需要提交到 Git 仓库的。
-你应该提交的是源文件（source、themes、_config.yml 等）。
-推荐方法: 使用单独的分支或单...
+              Hexo 文章的 Front Matter（前置信息），使用 YAML 格式编写，位于文章开头 --- 分隔符之间。每个字段的含义如下：
+
+title: 文章标题，会显示在博客页面和浏览器标签上。值为 Hexo 维护个人博客的最佳实践。
+
+date: 文章创建&#x2F;发布时间，Hexo 用来排序文章。值为 2026-05-31 09:23:24。
+
+tags: 文章标签，用于对文章进行横向分类...
             </div>
             
             <div class="post-footer">
-              <a href="../../2026/05/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="read-more">
+              <a href="../../2026/05/31/%E6%96%87%E7%AB%A0%E7%9A%84%20Front%20Matter/" class="read-more">
                 <i class="fas fa-code"></i>
                 Read More
               </a>
@@ -406,7 +407,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <script src="../../js/search.js"></script>
 <script src="../../js/theme-switch.js"></script>
 
-<script src="../../js/password-protect.js?v=1780199892688"></script>
+<script src="../../js/password-protect.js?v=1780199892693"></script>
 
     <script>
       // 移动端菜单切换

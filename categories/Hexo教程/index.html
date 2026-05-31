@@ -46,7 +46,7 @@
   <link rel="stylesheet" href="../../css/mermaid.css">
 
   <link rel="stylesheet" href="../../css/vs-code.css">
-  <link rel="stylesheet" href="../../css/post.css?v=1780199892688">
+  <link rel="stylesheet" href="../../css/post.css?v=1780199892693">
   <link rel="stylesheet" href="../../css/tag.css">
   <link rel="stylesheet" href="../../css/categories.css">
   <link rel="stylesheet" href="../../css/archive.css">
@@ -88,11 +88,11 @@
         <i class="fas fa-archive"></i>
         <span>归档</span>
       </a>
-      <a href="/categories/" class="nav-item ">
+      <a href="/categories/" class="nav-item active">
         <i class="fas fa-folder"></i>
         <span>分类</span>
       </a>
-      <a href="/tags/" class="nav-item active">
+      <a href="/tags/" class="nav-item ">
         <i class="fas fa-tags"></i>
         <span>标签</span>
       </a>
@@ -158,41 +158,21 @@
 </script>
 
 
-
-
 <div class="vscode-container">
   <!-- 左侧资源管理器 -->
   <div class="sidebar-explorer">
     <div class="explorer-section">
       <div class="section-header">
-        <i class="fas fa-tags"></i>
-        <span>ALL TAGS</span>
+        <i class="fas fa-folder-open"></i>
+        <span>CATEGORIES</span>
       </div>
       <div class="section-content">
         
-          <div class="tag-item ">
-            <i class="fas fa-tag"></i>
-            <a href="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
-            <span class="count">(1)</span>
-          </div>
-        
-          <div class="tag-item active">
-            <i class="fas fa-tag"></i>
-            <a href="">Hexo</a>
-            <span class="count">(1)</span>
-          </div>
-        
-          <div class="tag-item ">
-            <i class="fas fa-tag"></i>
-            <a href="../%E6%95%99%E7%A8%8B/">教程</a>
-            <span class="count">(1)</span>
-          </div>
-        
-          <div class="tag-item ">
-            <i class="fas fa-tag"></i>
-            <a href="../%E8%BF%90%E7%BB%B4/">运维</a>
-            <span class="count">(1)</span>
-          </div>
+          <a class="category-item active" href="">
+            <i class="fas fa-folder"></i>
+            <span>Hexo教程</span>
+            <span class="count">(3)</span>
+          </a>
         
       </div>
     </div>
@@ -202,64 +182,118 @@
   <div class="editor-content">
     <div class="tab-bar">
       <div class="tab active">
-        <i class="fas fa-tag"></i>
-        <span>tag: Hexo.md</span>
+        <i class="fas fa-folder-open"></i>
+        <span>Hexo教程.md</span>
       </div>
     </div>
     
     <div class="content-area">
-      <div class="tag-header">
-        <h1>
-          <i class="fas fa-tag"></i>
-          Tag: Hexo
-        </h1>
-        <span class="tag-count">1 posts</span>
-      </div>
-
-      <div class="posts-container">
-        
-          <div class="post-card">
-            <div class="post-header">
-              <i class="fas fa-file-alt"></i>
-              <span class="post-title">
-                <a href="../../2026/05/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">Hexo 维护个人博客的最佳实践</a>
-              </span>
-            </div>
-            
-            <div class="post-meta">
-              <span class="date">
-                <i class="fas fa-calendar-alt"></i>
-                2026-05-31
-              </span>
-              
-                <span class="category">
-                  <i class="fas fa-folder"></i>
-                  <a class="category-link" href="../../categories/Hexo%E6%95%99%E7%A8%8B/">Hexo教程</a>
-                </span>
-              
-            </div>
-            
-            <div class="post-excerpt">
-              Hexo 是一个快速、简洁且高效的静态博客框架，非常适合用于搭建个人博客。结合 GitHub Pages 进行托管，可以完全免费地实现博客的部署和维护。
-维护个人博客的最佳实践
-版本控制（重要！）
-Hexo 生成的静态文件在 public 目录，这个目录是不需要提交到 Git 仓库的。
-你应该提交的是源文件（source、themes、_config.yml 等）。
-推荐方法: 使用单独的分支或单...
-            </div>
-            
-            <div class="post-footer">
-              <a href="../../2026/05/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="read-more">
-                <i class="fas fa-code"></i>
-                Read More
-              </a>
-            </div>
-          </div>
-        
-      </div>
-
       
 
+      <!-- 分类 Hero 横幅 -->
+      <div class="category-detail-hero">
+        
+        <div class="category-detail-hero-overlay"></div>
+        <div class="category-detail-hero-content">
+          <div class="category-detail-hero-icon">
+            <i class="fas fa-folder-open"></i>
+          </div>
+          <h1 class="category-detail-hero-title">Hexo教程</h1>
+          
+          <div class="category-detail-hero-meta">
+            <span class="category-detail-hero-count">
+              <i class="fas fa-file-alt"></i>
+              3 posts
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 文章列表 -->
+      <div class="category-detail-posts">
+        
+          
+          <a href="../../2026/05/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="category-detail-card">
+            <div class="category-detail-card-body">
+              <div class="category-detail-card-header">
+                <i class="fas fa-file-alt"></i>
+                <span class="category-detail-card-title">Hexo 维护个人博客的最佳实践</span>
+                
+              </div>
+              <div class="category-detail-card-meta">
+                <span><i class="fas fa-calendar-alt"></i> 2026-05-31</span>
+                
+                  <span class="category-detail-card-tags">
+                    
+                      <span class="category-detail-tag"><i class="fas fa-tag"></i> Hexo</span>
+                    
+                      <span class="category-detail-tag"><i class="fas fa-tag"></i> 运维</span>
+                    
+                  </span>
+                
+              </div>
+              <p class="category-detail-card-excerpt">
+                Hexo 是一个快速、简洁且高效的静态博客框架，非常适合用于搭建个人博客。结合 GitHub Pages 进行托管，可以完全免费地实现博客的部署和维护。
+维护个人博客的最佳实践
+版本控制（重要！）
+Hexo 生成的静态文件在 public ...
+              </p>
+            </div>
+            
+          </a>
+        
+          
+          <a href="../../2026/05/31/%E6%96%87%E7%AB%A0%E7%9A%84%20Front%20Matter/" class="category-detail-card">
+            <div class="category-detail-card-body">
+              <div class="category-detail-card-header">
+                <i class="fas fa-file-alt"></i>
+                <span class="category-detail-card-title">Front Matter 介绍</span>
+                
+              </div>
+              <div class="category-detail-card-meta">
+                <span><i class="fas fa-calendar-alt"></i> 2026-05-31</span>
+                
+                  <span class="category-detail-card-tags">
+                    
+                      <span class="category-detail-tag"><i class="fas fa-tag"></i> 基础知识</span>
+                    
+                      <span class="category-detail-tag"><i class="fas fa-tag"></i> 教程</span>
+                    
+                  </span>
+                
+              </div>
+              <p class="category-detail-card-excerpt">
+                Hexo 文章的 Front Matter（前置信息），使用 YAML 格式编写，位于文章开头 --- 分隔符之间。每个字段的含义如下：
+
+title: 文章标题，会显示在博客页面和浏览器标签上。值为 Hexo 维护个人博客的最佳实践。
+
+...
+              </p>
+            </div>
+            
+          </a>
+        
+          
+          <a href="../../2026/05/31/hello-world/" class="category-detail-card">
+            <div class="category-detail-card-body">
+              <div class="category-detail-card-header">
+                <i class="fas fa-file-alt"></i>
+                <span class="category-detail-card-title">Hexo 快速开始</span>
+                
+              </div>
+              <div class="category-detail-card-meta">
+                <span><i class="fas fa-calendar-alt"></i> 2026-05-31</span>
+                
+              </div>
+              <p class="category-detail-card-excerpt">
+                欢迎来到 Hexo！这是你的第一篇文章。查看 文档 获取更多信息。如果你在使用 Hexo 时遇到任何问题，可以在 故障排除 中找到答案，或者你可以在 GitHub 上向我提问。
+快速开始创建新文章1$ hexo new &quot;My N...
+              </p>
+            </div>
+            
+          </a>
+        
+      </div>
     </div>
   </div>
 </div>
@@ -406,7 +440,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 <script src="../../js/search.js"></script>
 <script src="../../js/theme-switch.js"></script>
 
-<script src="../../js/password-protect.js?v=1780199892688"></script>
+<script src="../../js/password-protect.js?v=1780199892693"></script>
 
     <script>
       // 移动端菜单切换
