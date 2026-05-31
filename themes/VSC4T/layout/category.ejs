@@ -1,0 +1,124 @@
+<%- partial('_partial/header') %>
+
+<div class="vscode-container">
+  <!-- 左侧资源管理器 -->
+  <div class="sidebar-explorer">
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-folder-open"></i>
+        <span>CATEGORIES</span>
+      </div>
+      <div class="section-content">
+        <% site.categories.sort('name').each(function(category){ %>
+          <a class="category-item <%- page.category === category.name ? 'active' : '' %>" href="<%- url_for(category.path) %>">
+            <i class="fas fa-folder"></i>
+            <span><%= category.name %></span>
+            <span class="count">(<%= category.length %>)</span>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主要内容区域 -->
+  <div class="editor-content">
+    <div class="tab-bar">
+      <div class="tab active">
+        <i class="fas fa-folder-open"></i>
+        <span><%= page.category %>.md</span>
+      </div>
+    </div>
+    
+    <div class="content-area">
+      <%
+        // 读取分类自定义配置
+        var catConfig = theme.categories && theme.categories[page.category] ? theme.categories[page.category] : {};
+        var catCover = catConfig.cover || null;
+        var catDesc = catConfig.description || null;
+
+        // 如果没有自定义封面，自动获取分类下第一篇有图片的文章
+        if (!catCover) {
+          page.posts.sort('date', -1).each(function(p) {
+            if (!catCover) {
+              if (p.cover) catCover = p.cover;
+              else if (p.thumbnail) catCover = p.thumbnail;
+              else {
+                var m = p.content.match(/<img[^>]+src=["']([^"']+)["']/);
+                if (m) catCover = m[1];
+              }
+            }
+          });
+        }
+      %>
+
+      <!-- 分类 Hero 横幅 -->
+      <div class="category-detail-hero<%= catCover ? ' has-cover' : '' %>">
+        <% if (catCover) { %>
+          <img class="category-detail-hero-img" src="<%- catCover %>" alt="<%- page.category %>" loading="lazy">
+        <% } %>
+        <div class="category-detail-hero-overlay"></div>
+        <div class="category-detail-hero-content">
+          <div class="category-detail-hero-icon">
+            <i class="fas fa-folder-open"></i>
+          </div>
+          <h1 class="category-detail-hero-title"><%= page.category %></h1>
+          <% if (catDesc) { %>
+            <p class="category-detail-hero-desc"><%= catDesc %></p>
+          <% } %>
+          <div class="category-detail-hero-meta">
+            <span class="category-detail-hero-count">
+              <i class="fas fa-file-alt"></i>
+              <%= page.posts.length %> posts
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 文章列表 -->
+      <div class="category-detail-posts">
+        <% page.posts.sort('date', -1).each(function(post){ %>
+          <%
+            var detailThumb = null;
+            if (post.cover) detailThumb = post.cover;
+            else if (post.thumbnail) detailThumb = post.thumbnail;
+            else {
+              var detailImgM = post.content.match(/<img[^>]+src=["']([^"']+)["']/);
+              if (detailImgM) detailThumb = detailImgM[1];
+            }
+          %>
+          <a href="<%- url_for(post.path) %>" class="category-detail-card">
+            <div class="category-detail-card-body">
+              <div class="category-detail-card-header">
+                <i class="fas fa-file-alt"></i>
+                <span class="category-detail-card-title"><%= post.title %></span>
+                <% if (post.sticky || post.top) { %>
+                  <span class="sticky-indicator" title="Pinned">
+                    <i class="fas fa-thumbtack"></i>
+                  </span>
+                <% } %>
+              </div>
+              <div class="category-detail-card-meta">
+                <span><i class="fas fa-calendar-alt"></i> <%= date(post.date, config.date_format) %></span>
+                <% if (post.tags && post.tags.length) { %>
+                  <span class="category-detail-card-tags">
+                    <% post.tags.each(function(tag){ %>
+                      <span class="category-detail-tag"><i class="fas fa-tag"></i> <%= tag.name %></span>
+                    <% }); %>
+                  </span>
+                <% } %>
+              </div>
+              <p class="category-detail-card-excerpt">
+                <%- strip_html(post.excerpt || post.content).substr(0, 120) %>...
+              </p>
+            </div>
+            <% if (detailThumb) { %>
+              <div class="category-detail-card-thumb">
+                <img src="<%- detailThumb %>" alt="<%- post.title %>" loading="lazy">
+              </div>
+            <% } %>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,58 @@
+<% if (page.total > 1) {
+  const paginationDir = config.pagination_dir || 'page';
+  const basePath = (() => {
+    // Use page.base if defined (even if empty string), otherwise extract base from page.path
+    let base;
+    if (typeof page.base !== 'undefined') {
+      base = page.base;
+    } else if (page.path) {
+      // Remove pagination part from path (e.g., 'page/2/' -> '')
+      const paginationPattern = new RegExp(`^(.*?)(?:${paginationDir}/\\d+/?)?$`);
+      const match = page.path.match(paginationPattern);
+      base = match ? match[1] : page.path;
+    } else {
+      base = '';
+    }
+    base = base.replace(/index\.html$/i, '').replace(/^\/+/, '');
+    if (!base) return '';
+    return base.endsWith('/') ? base : `${base}/`;
+  })();
+  const buildPageUrl = (index) => {
+    return index === 1
+      ? url_for(basePath || '/')
+      : url_for(`${basePath}${paginationDir}/${index}/`);
+  };
+%>
+<nav class="pagination-container" aria-label="Page navigation">
+  <span class="pagination-info">Page <%= page.current %> of <%= page.total %></span>
+  <div class="pagination">
+    <% if (page.prev) { %>
+      <a class="page-btn" href="<%- url_for(page.prev_link) %>" aria-label="Previous page">
+        <i class="fas fa-chevron-left" aria-hidden="true"></i>
+      </a>
+    <% } else { %>
+      <span class="page-btn disabled" aria-hidden="true">
+        <i class="fas fa-chevron-left"></i>
+      </span>
+    <% } %>
+
+    <% for (let i = 1; i <= page.total; i++) { %>
+      <% if (i === page.current) { %>
+        <span class="page-btn current" aria-current="page"><%= i %></span>
+      <% } else { %>
+        <a class="page-btn" href="<%- buildPageUrl(i) %>"><%= i %></a>
+      <% } %>
+    <% } %>
+
+    <% if (page.next) { %>
+      <a class="page-btn" href="<%- url_for(page.next_link) %>" aria-label="Next page">
+        <i class="fas fa-chevron-right" aria-hidden="true"></i>
+      </a>
+    <% } else { %>
+      <span class="page-btn disabled" aria-hidden="true">
+        <i class="fas fa-chevron-right"></i>
+      </span>
+    <% } %>
+  </div>
+</nav>
+<% } %>

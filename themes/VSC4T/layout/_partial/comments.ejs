@@ -1,0 +1,96 @@
+<% if (theme.comments && theme.comments.provider && page.comments !== false) { %>
+  <div class="vs-comments-section">
+    <div class="section-header">
+      <i class="fas fa-comments"></i>
+      <span><%= __('comments') || 'COMMENTS' %></span>
+    </div>
+    
+    <% if (theme.comments.provider === 'waline') { %>
+      <!-- Waline 评论系统 -->
+      <div id="waline"></div>
+      <script>
+        // 加载 Waline CSS
+        const walineCSS = document.createElement('link');
+        walineCSS.rel = 'stylesheet';
+        walineCSS.href = 'https://unpkg.com/@waline/client@v3/dist/waline.css';
+        document.head.appendChild(walineCSS);
+        
+        // 加载 Waline JS
+        const walineScript = document.createElement('script');
+        walineScript.type = 'module';
+        walineScript.onload = function() {
+          // 确保 Waline 加载后再初始化
+          import('https://unpkg.com/@waline/client@v3/dist/waline.js').then(({ init }) => {
+            const waline = init({
+              el: '#waline',
+              serverURL: '<%= theme.comments.waline.serverURL %>',
+              lang: '<%= theme.comments.waline.lang || config.language || "zh-CN" %>',
+              locale: <%- JSON.stringify(theme.comments.waline.locale || {}) %>,
+              emoji: <%- JSON.stringify(theme.comments.waline.emoji || []) %>,
+              requiredMeta: <%- JSON.stringify(theme.comments.waline.requiredMeta || []) %>,
+              login: '<%= theme.comments.waline.login || "disable" %>',
+              wordLimit: <%= theme.comments.waline.wordLimit || 0 %>,
+              pageSize: <%= theme.comments.waline.pageSize || 10 %>,
+              imageUploader: <%= theme.comments.waline.imageUploader || false %>,
+              highlighter: <%= theme.comments.waline.highlighter !== false %>,
+              texRenderer: <%= theme.comments.waline.texRenderer || false %>,
+              search: <%= theme.comments.waline.search || false %>,
+              pageview: <%= theme.comments.waline.pageview || false %>,
+              comment: <%= theme.comments.waline.comment !== false %>,
+              copyright: <%= theme.comments.waline.copyright || false %>,
+              
+              // 自动适配主题
+              dark: document.documentElement.getAttribute('data-theme') === 'dark' ? 'auto' : false,
+              
+              // 评论框占位符
+              placeholder: '<%= __("comment_placeholder") || "欢迎留言，无需登录即可评论~" %>',
+              
+              // 元数据配置
+              meta: ['nick', 'mail', 'link'],
+              
+              // 表情配置
+              emojiCDN: 'https://unpkg.com/@waline/emojis@1.2.0/',
+            });
+            
+            // 监听主题变化
+            const observer = new MutationObserver((mutations) => {
+              mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'data-theme') {
+                  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                  // Waline 会自动处理主题切换
+                  if (waline) {
+                    waline.update({ dark: isDark ? 'auto' : false });
+                  }
+                }
+              });
+            });
+            
+            observer.observe(document.documentElement, {
+              attributes: true,
+              attributeFilter: ['data-theme']
+            });
+          });
+        };
+        walineScript.src = 'https://unpkg.com/@waline/client@v3/dist/waline.js';
+        document.body.appendChild(walineScript);
+      </script>
+    
+    <% } else if (theme.comments.provider === 'disqus' && theme.comments.disqus.shortname) { %>
+      <!-- Disqus 评论系统 -->
+      <div id="disqus_thread"></div>
+      <script>
+        var disqus_config = function () {
+          this.page.url = '<%= page.permalink %>';
+          this.page.identifier = '<%= page.path %>';
+        };
+        (function() {
+          var d = document, s = d.createElement('script');
+          s.src = 'https://<%= theme.comments.disqus.shortname %>.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <% } %>
+  </div>
+<% } %>

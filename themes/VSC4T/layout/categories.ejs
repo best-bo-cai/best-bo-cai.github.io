@@ -1,0 +1,170 @@
+<%- partial('_partial/header') %>
+
+<div class="vscode-container">
+  <!-- 左侧资源管理器 -->
+  <div class="sidebar-explorer">
+    <div class="explorer-section">
+      <div class="section-header">
+        <i class="fas fa-folder-open"></i>
+        <span>CATEGORIES</span>
+      </div>
+      <div class="section-content">
+        <% site.categories.sort('name').each(function(category){ %>
+          <a class="category-item <%- page.category === category.name ? 'active' : '' %>" href="<%- url_for(category.path) %>">
+            <i class="fas fa-folder"></i>
+            <span><%= category.name %></span>
+            <span class="count">(<%= category.length %>)</span>
+          </a>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主要内容区域 -->
+  <div class="editor-content">
+    <div class="tab-bar">
+      <div class="tab active" data-target="categories-column-panel">
+        <i class="fas fa-folder-open"></i>
+        <span>categories.md</span>
+      </div>
+      <div class="tab" data-target="categories-list-panel">
+        <i class="fas fa-list"></i>
+        <span>categories.list</span>
+      </div>
+    </div>
+    
+    <div class="content-area">
+      <div id="categories-column-panel" class="categories-tab-panel active">
+      <div class="categories-overview categories-column-view">
+        <% site.categories.sort('name').each(function(category){ %>
+          <%
+            // 读取分类自定义配置
+            var colCatConfig = theme.categories && theme.categories[category.name] ? theme.categories[category.name] : {};
+            var categoryCover = colCatConfig.cover || null;
+            var categoryDesc = colCatConfig.description || null;
+
+            // 如果没有自定义封面，自动获取分类下第一篇有图片的文章
+            if (!categoryCover) {
+              category.posts.sort('date', -1).each(function(p) {
+                if (!categoryCover) {
+                  if (p.cover) {
+                    categoryCover = p.cover;
+                  } else if (p.thumbnail) {
+                    categoryCover = p.thumbnail;
+                  } else {
+                    var imgM = p.content.match(/<img[^>]+src=["']([^"']+)["']/);
+                    if (imgM) categoryCover = imgM[1];
+                  }
+                }
+              });
+            }
+          %>
+          <div class="category-column-card">
+            <a href="<%- url_for(category.path) %>" class="category-column-link">
+              <div class="category-column-cover">
+                <% if (categoryCover) { %>
+                  <img src="<%- categoryCover %>" alt="<%- category.name %>" loading="lazy">
+                <% } else { %>
+                  <div class="category-column-placeholder">
+                    <i class="fas fa-folder-open"></i>
+                  </div>
+                <% } %>
+                <div class="category-column-overlay"></div>
+                <div class="category-column-badge">
+                  <span><%= category.length %> posts</span>
+                </div>
+              </div>
+              <div class="category-column-info">
+                <h3 class="category-column-name">
+                  <i class="fas fa-folder"></i>
+                  <%= category.name %>
+                </h3>
+                <% if (categoryDesc) { %>
+                  <p class="category-column-desc"><%= categoryDesc %></p>
+                <% } %>
+                <div class="category-column-recent">
+                  <% var recentPosts = []; %>
+                  <% category.posts.sort('date', -1).limit(3).each(function(p){ recentPosts.push(p); }); %>
+                  <% recentPosts.forEach(function(p){ %>
+                    <div class="category-column-post">
+                      <i class="fas fa-file-alt"></i>
+                      <span><%= p.title %></span>
+                    </div>
+                  <% }); %>
+                </div>
+              </div>
+            </a>
+          </div>
+        <% }) %>
+      </div>
+      </div>
+      
+      <!-- 传统列表视图（折叠式） -->
+      <div id="categories-list-panel" class="categories-tab-panel">
+      <div class="categories-list-view">
+        <% site.categories.sort('name').each(function(category){ %>
+          <div class="category-section">
+            <div class="category-header collapsed">
+              <i class="fas fa-folder"></i>
+              <a href="<%- url_for(category.path) %>" class="category-link">
+                <h2><%= category.name %></h2>
+              </a>
+              <span class="count"><%= category.length %> posts</span>
+              <i class="fas fa-chevron-down toggle-icon"></i>
+            </div>
+            <div class="category-posts collapsed">
+              <% category.posts.sort('date', -1).each(function(post){ %>
+                <%
+                  var catPostThumb = null;
+                  if (post.cover) catPostThumb = post.cover;
+                  else if (post.thumbnail) catPostThumb = post.thumbnail;
+                  else {
+                    var catImgM = post.content.match(/<img[^>]+src=["']([^"']+)["']/);
+                    if (catImgM) catPostThumb = catImgM[1];
+                  }
+                %>
+                <div class="post-item<%= catPostThumb ? ' has-thumb' : '' %>">
+                  <i class="fas fa-file-alt"></i>
+                  <div class="post-info">
+                    <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+                    <span class="date">
+                      <i class="fas fa-calendar-alt"></i>
+                      <%= date(post.date, config.date_format) %>
+                    </span>
+                  </div>
+                  <% if (catPostThumb) { %>
+                    <div class="post-item-thumb">
+                      <img src="<%- catPostThumb %>" alt="<%- post.title %>" loading="lazy">
+                    </div>
+                  <% } %>
+                </div>
+              <% }) %>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const tabs = document.querySelectorAll('.editor-content .tab-bar .tab[data-target]');
+  const panels = document.querySelectorAll('.categories-tab-panel');
+  
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      // 切换 tab 激活状态
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      
+      // 切换面板显示
+      const targetId = tab.getAttribute('data-target');
+      panels.forEach(function(p) { p.classList.remove('active'); });
+      var target = document.getElementById(targetId);
+      if (target) target.classList.add('active');
+    });
+  });
+})();
+</script>

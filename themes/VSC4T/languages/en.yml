@@ -1,0 +1,64 @@
+home: Home
+archives: Archives
+categories: Categories
+tags: Tags
+about: About
+search: Search
+previous: Previous
+next: Next
+read_more: Read More
+pinned_post: Pinned Post
+post_updated: Updated
+
+# Search functionality
+search_placeholder: Type to search...
+search_no_results: No results found
+search_result: result
+search_results: results
+search_results_found: Found %s results
+search_in: Search in
+search_in_title: Title
+search_in_content: Content
+search_in_tags: Tags
+search_in_categories: Categories
+search_filters: Search Filters
+search_recent: Recent Searches
+search_clear: Clear
+search_loading: Loading...
+search_error: Error loading search data
+
+# Recommended posts
+recommended_posts: RELATED POSTS
+
+# Comments
+comments: COMMENTS
+comment_placeholder: Feel free to leave a comment, no login required!
+similarity: Similarity
+view_more_posts: View More Posts
+min_read: min read
+
+# Encryption / Password Protection
+encrypt_badge: Protected
+encrypt_title: Protected Content
+encrypt_description: Enter the password to unlock this article. The password will be saved locally until you choose to re-encrypt.
+encrypt_label: Password
+encrypt_placeholder: Enter password to unlock
+encrypt_button: Unlock
+encrypt_button_loading: Unlocking...
+encrypt_hint: Press Enter to submit. Password will be remembered on this device.
+encrypt_success: Content unlocked successfully!
+encrypt_unlocked_note: Content unlocked. You can re-encrypt at any time.
+encrypt_again: Re-encrypt
+encrypt_wrong_password: Incorrect password. Please try again.
+encrypt_show_password: Show password
+encrypt_hide_password: Hide password
+
+# Sidebar
+sidebar_about: About
+sidebar_categories: Categories
+sidebar_tags: Tags
+
+# Post page
+post_toc: TABLE OF CONTENTS
+post_category_posts: CATEGORY POSTS
+post_article_tags: ARTICLE TAGS

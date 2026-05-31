@@ -1,0 +1,66 @@
+<aside class="sidebar">
+  <!-- 关于我 -->
+  <div class="sidebar-section about">
+    <h3><i class="fas fa-user"></i> <%- __('sidebar_about') %></h3>
+    <div class="about-info">
+      <img src="<%- url_for(theme.avatar || '/images/avatar.png') %>" alt="avatar" class="avatar">
+      <p><%- theme.description || config.description %></p>
+    </div>
+  </div>
+
+  <!-- 分类 -->
+  <div class="sidebar-section categories">
+    <h3><i class="fas fa-folder"></i> <%- __('sidebar_categories') %></h3>
+    <%- list_categories({
+      show_count: false,
+      orderby: 'name',
+      order: 1,
+      show_all: true,
+      class: 'category',
+      depth: 0,
+      style: 'list',
+      separator: ', ',
+      transform: function(name) { return name === 'Computer Vision' ? 'Computer Vision' : name; },
+      url: config.root + 'categories/'
+    }) %>
+  </div>
+
+  <!-- 标签云 - 按拼音 A-Z 排序（中英混合）-->
+  <div class="sidebar-section tags">
+    <h3><i class="fas fa-tags"></i> <%- __('sidebar_tags') %></h3>
+    <%
+    // 获取所有标签并按拼音首字母排序
+    const allTags = [];
+    site.tags.each(function(tag) {
+      const firstLetter = getPinyinFirstLetter(tag.name);
+      allTags.push({
+        name: tag.name,
+        path: tag.path,
+        length: tag.length,
+        firstLetter: firstLetter
+      });
+    });
+    
+    // 按拼音首字母排序（A-Z），然后按名称排序
+    allTags.sort((a, b) => {
+      // 先按首字母排序
+      if (a.firstLetter === '#' && b.firstLetter !== '#') return 1;
+      if (a.firstLetter !== '#' && b.firstLetter === '#') return -1;
+      if (a.firstLetter !== b.firstLetter) {
+        return a.firstLetter.localeCompare(b.firstLetter);
+      }
+      // 首字母相同时，按完整拼音排序
+      const pinyinA = getPinyinSortKey ? getPinyinSortKey(a.name) : a.name.toLowerCase();
+      const pinyinB = getPinyinSortKey ? getPinyinSortKey(b.name) : b.name.toLowerCase();
+      return pinyinA.localeCompare(pinyinB);
+    });
+    %>
+    <div class="tagcloud-pinyin">
+      <% allTags.forEach(function(tag) { %>
+        <a href="<%- url_for(tag.path) %>" class="tag-cloud-link" title="<%= tag.name %> (<%= tag.length %>)">
+          <%= tag.name %>
+        </a>
+      <% }) %>
+    </div>
+  </div>
+</aside>
