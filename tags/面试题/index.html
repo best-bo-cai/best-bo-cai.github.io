@@ -38,29 +38,29 @@
   <script defer src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js" crossorigin="anonymous"></script>
 
   <!-- 主题样式 -->
-  <link rel="stylesheet" href="css/theme-colors.css">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/code.css">
-  <link rel="stylesheet" href="css/code-custom.css">
-  <link rel="stylesheet" href="css/code-languages.css">
-  <link rel="stylesheet" href="css/mermaid.css">
+  <link rel="stylesheet" href="../../css/theme-colors.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/code.css">
+  <link rel="stylesheet" href="../../css/code-custom.css">
+  <link rel="stylesheet" href="../../css/code-languages.css">
+  <link rel="stylesheet" href="../../css/mermaid.css">
 
-  <link rel="stylesheet" href="css/vs-code.css">
-  <link rel="stylesheet" href="css/post.css?v=1780901266388">
-  <link rel="stylesheet" href="css/tag.css">
-  <link rel="stylesheet" href="css/categories.css">
-  <link rel="stylesheet" href="css/archive.css">
-  <link rel="stylesheet" href="css/search.css">
-  <link rel="stylesheet" href="css/mobile.css">  <link rel="stylesheet" href="css/responsive.css">
-  <link rel="stylesheet" href="css/elements.css">
+  <link rel="stylesheet" href="../../css/vs-code.css">
+  <link rel="stylesheet" href="../../css/post.css?v=1780901266393">
+  <link rel="stylesheet" href="../../css/tag.css">
+  <link rel="stylesheet" href="../../css/categories.css">
+  <link rel="stylesheet" href="../../css/archive.css">
+  <link rel="stylesheet" href="../../css/search.css">
+  <link rel="stylesheet" href="../../css/mobile.css">  <link rel="stylesheet" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../css/elements.css">
 
   <!-- 添加 JetBrains Mono 字体 -->  
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
   <!-- Add any custom head content here -->
 
-  <script defer src="js/explorer.js"></script>
-  <script defer src="js/code-enhance.js"></script>
+  <script defer src="../../js/explorer.js"></script>
+  <script defer src="../../js/code-enhance.js"></script>
 <meta name="generator" content="Hexo 8.1.2"></head>
 
   <body>
@@ -80,7 +80,7 @@
     </div>
     
     <div class="nav-right">
-      <a href="/" class="nav-item active">
+      <a href="/" class="nav-item ">
         <i class="fas fa-home"></i>
         <span>首页</span>
       </a>
@@ -92,7 +92,7 @@
         <i class="fas fa-folder"></i>
         <span>分类</span>
       </a>
-      <a href="/tags/" class="nav-item ">
+      <a href="/tags/" class="nav-item active">
         <i class="fas fa-tags"></i>
         <span>标签</span>
       </a>
@@ -158,106 +158,51 @@
 </script>
 
 
-<div class="vscode-container">
-  <div class="sidebar-explorer">
-    <div class="explorer-header">
-      <span class="explorer-title">
-        <i class="fas fa-folder-open"></i> EXPLORER
-      </span>
-    </div>
-    
-    <div class="explorer-section">
-      <div class="section-header">
-        <i class="fas fa-chevron-down"></i>
-        <span>BLOG CONTENTS</span>
-      </div>
-      
-      <div class="section-content">
-          <div class="folder">
-            <i class="fas fa-folder"></i>
-            <a href="categories/Hexo%E6%95%99%E7%A8%8B/" class="category-link">
-              <span>Hexo教程</span>
-              <span class="count">(3)</span>
-            </a>
-          </div>
-          <div class="folder">
-            <i class="fas fa-folder"></i>
-            <a href="categories/%E9%9D%A2%E8%AF%95%E9%A2%98/" class="category-link">
-              <span>面试题</span>
-              <span class="count">(1)</span>
-            </a>
-          </div>
-      </div>
-    </div>
-    
-    <div class="explorer-section">
-      <div class="section-header">
-        <i class="fas fa-chevron-down"></i>
-        <span>RECENT POSTS</span>
-      </div>
-      
-      <div class="section-content">
-          <div class="file">
-            <i class="fas fa-file-code"></i>
-            <a href="2026/05/31/Hexo%20%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/">Hexo 快速开始</a>
-          </div>
-          <div class="file">
-            <i class="fas fa-file-code"></i>
-            <a href="2026/05/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">Hexo 维护个人博客的最佳实践</a>
-          </div>
-          <div class="file">
-            <i class="fas fa-file-code"></i>
-            <a href="2026/05/31/%E6%96%87%E7%AB%A0%E7%9A%84%20Front%20Matter/">Front Matter 介绍</a>
-          </div>
-          <div class="file">
-            <i class="fas fa-file-code"></i>
-            <a href="2026/05/31/Java%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/">Java开发面试题</a>
-          </div>
-      </div>
-    </div>
 
+
+<div class="vscode-container">
+  <!-- 左侧资源管理器 -->
+  <div class="sidebar-explorer">
     <div class="explorer-section">
       <div class="section-header">
-        <i class="fas fa-chevron-down"></i>
-        <span>TAGS</span>
+        <i class="fas fa-tags"></i>
+        <span>ALL TAGS</span>
       </div>
-      
       <div class="section-content">
         
-        
-          <div class="tag-item">
+          <div class="tag-item ">
             <i class="fas fa-tag"></i>
-            <a href="tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
+            <a href="../%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">基础知识</a>
             <span class="count">(1)</span>
           </div>
         
-          <div class="tag-item">
+          <div class="tag-item ">
             <i class="fas fa-tag"></i>
-            <a href="tags/Hexo/">Hexo</a>
+            <a href="../Hexo/">Hexo</a>
             <span class="count">(1)</span>
           </div>
         
-          <div class="tag-item">
+          <div class="tag-item ">
             <i class="fas fa-tag"></i>
-            <a href="tags/Java/">Java</a>
+            <a href="../Java/">Java</a>
             <span class="count">(1)</span>
           </div>
         
-          <div class="tag-item">
+          <div class="tag-item ">
             <i class="fas fa-tag"></i>
-            <a href="tags/%E6%95%99%E7%A8%8B/">教程</a>
+            <a href="../%E6%95%99%E7%A8%8B/">教程</a>
             <span class="count">(1)</span>
           </div>
         
-          <div class="tag-item">
+          <div class="tag-item ">
             <i class="fas fa-tag"></i>
-            <a href="tags/%E8%BF%90%E7%BB%B4/">运维</a>
+            <a href="../%E8%BF%90%E7%BB%B4/">运维</a>
             <span class="count">(1)</span>
           </div>
         
-          <div class="tag-item">
+          <div class="tag-item active">
             <i class="fas fa-tag"></i>
-            <a href="tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+            <a href="">面试题</a>
             <span class="count">(1)</span>
           </div>
         
@@ -265,195 +210,62 @@
     </div>
   </div>
 
+  <!-- 主要内容区域 -->
   <div class="editor-content">
     <div class="tab-bar">
       <div class="tab active">
-        <i class="fas fa-home"></i>
-        <span>welcome.md</span>
+        <i class="fas fa-tag"></i>
+        <span>tag: %u9762%u8BD5%u9898.md</span>
       </div>
     </div>
     
     <div class="content-area">
-      <div class="posts-container">
-          
-          <div class="post-card">
-            <div class="post-card-content">
-              <div class="post-card-top">
-                <div class="post-card-info">
-                  <div class="post-header">
-                    <i class="fas fa-file-alt"></i>
-                    <span class="post-title">
-                      <a href="2026/05/31/Hexo%20%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/">Hexo 快速开始</a>
-                      
-                    </span>
-                  </div>
-                  
-                  <div class="post-meta">
-                    <span class="date">
-                      <i class="fas fa-calendar-alt"></i>
-                      2026-05-31
-                    </span>
-                      <span class="category">
-                        <i class="fas fa-folder"></i>
-                        <a class="category-link" href="categories/Hexo%E6%95%99%E7%A8%8B/">Hexo教程</a>
-                      </span>
-                  </div>
-                </div>
-                
-              </div>
-              
-              <div class="post-excerpt">
-                欢迎来到 Hexo！这是你的第一篇文章。查看 文档 获取更多信息。如果你在使用 Hexo 时遇到任何问题，可以在 故障排除 中找到答案，或者你可以在 GitHub 上向我提问。
-快速开始创建新文章1$ hexo new &quot;My New Post&quot;
-
-更多信息：写作
-运行服务器1$ hexo server
-
-更多信息：服务器
-生成静态文件1$ hexo generate
-
-更多信...
-              </div>
-              
-              <div class="post-footer">
-                <a href="2026/05/31/Hexo%20%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/" class="read-more">
-                  <i class="fas fa-code"></i>
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="post-card">
-            <div class="post-card-content">
-              <div class="post-card-top">
-                <div class="post-card-info">
-                  <div class="post-header">
-                    <i class="fas fa-file-alt"></i>
-                    <span class="post-title">
-                      <a href="2026/05/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/">Hexo 维护个人博客的最佳实践</a>
-                      
-                    </span>
-                  </div>
-                  
-                  <div class="post-meta">
-                    <span class="date">
-                      <i class="fas fa-calendar-alt"></i>
-                      2026-05-31
-                    </span>
-                      <span class="category">
-                        <i class="fas fa-folder"></i>
-                        <a class="category-link" href="categories/Hexo%E6%95%99%E7%A8%8B/">Hexo教程</a>
-                      </span>
-                  </div>
-                </div>
-                
-              </div>
-              
-              <div class="post-excerpt">
-                Hexo 是一个快速、简洁且高效的静态博客框架，非常适合用于搭建个人博客。结合 GitHub Pages 进行托管，可以完全免费地实现博客的部署和维护。
-维护个人博客的最佳实践
-版本控制（重要！）
-Hexo 生成的静态文件在 public 目录，这个目录是不需要提交到 Git 仓库的。
-你应该提交的是源文件（source、themes、_config.yml 等）。
-推荐方法: 使用单独的分支或单...
-              </div>
-              
-              <div class="post-footer">
-                <a href="2026/05/31/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/" class="read-more">
-                  <i class="fas fa-code"></i>
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="post-card">
-            <div class="post-card-content">
-              <div class="post-card-top">
-                <div class="post-card-info">
-                  <div class="post-header">
-                    <i class="fas fa-file-alt"></i>
-                    <span class="post-title">
-                      <a href="2026/05/31/%E6%96%87%E7%AB%A0%E7%9A%84%20Front%20Matter/">Front Matter 介绍</a>
-                      
-                    </span>
-                  </div>
-                  
-                  <div class="post-meta">
-                    <span class="date">
-                      <i class="fas fa-calendar-alt"></i>
-                      2026-05-31
-                    </span>
-                      <span class="category">
-                        <i class="fas fa-folder"></i>
-                        <a class="category-link" href="categories/Hexo%E6%95%99%E7%A8%8B/">Hexo教程</a>
-                      </span>
-                  </div>
-                </div>
-                
-              </div>
-              
-              <div class="post-excerpt">
-                Hexo 文章的 Front Matter（前置信息），使用 YAML 格式编写，位于文章开头 --- 分隔符之间。每个字段的含义如下：
-
-title: 文章标题，会显示在博客页面和浏览器标签上。值为 Hexo 维护个人博客的最佳实践。
-
-date: 文章创建&#x2F;发布时间，Hexo 用来排序文章。值为 2026-05-31 09:23:24。
-
-tags: 文章标签，用于对文章进行横向分类...
-              </div>
-              
-              <div class="post-footer">
-                <a href="2026/05/31/%E6%96%87%E7%AB%A0%E7%9A%84%20Front%20Matter/" class="read-more">
-                  <i class="fas fa-code"></i>
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div class="post-card">
-            <div class="post-card-content">
-              <div class="post-card-top">
-                <div class="post-card-info">
-                  <div class="post-header">
-                    <i class="fas fa-file-alt"></i>
-                    <span class="post-title">
-                      <a href="2026/05/31/Java%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/">Java开发面试题</a>
-                      
-                    </span>
-                  </div>
-                  
-                  <div class="post-meta">
-                    <span class="date">
-                      <i class="fas fa-calendar-alt"></i>
-                      2026-05-31
-                    </span>
-                      <span class="category">
-                        <i class="fas fa-folder"></i>
-                        <a class="category-link" href="categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
-                      </span>
-                  </div>
-                </div>
-                
-              </div>
-              
-              <div class="post-excerpt">
-                一、Java基础1. 集合框架HashMap在JDK1.8的调整（红黑树引入）口语化表达：
-HashMap在JDK1.8最大的改动就是引入了红黑树。之前1.7的时候，hash冲突的元素都是用链表存的，链表查找是O(n)，如果冲突特别多，查找就特别慢。1.8就加了个优化：当链表长度超过8并且整个数组容量超过64的时候，链表就会转成红黑树，红黑树查找是O(logn)，快很多。当红黑树的节点减少到6的时...
-              </div>
-              
-              <div class="post-footer">
-                <a href="2026/05/31/Java%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/" class="read-more">
-                  <i class="fas fa-code"></i>
-                  Read More
-                </a>
-              </div>
-            </div>
-          </div>
+      <div class="tag-header">
+        <h1>
+          <i class="fas fa-tag"></i>
+          Tag: 面试题
+        </h1>
+        <span class="tag-count">1 posts</span>
       </div>
-      
+
+      <div class="posts-container">
+        
+          <div class="post-card">
+            <div class="post-header">
+              <i class="fas fa-file-alt"></i>
+              <span class="post-title">
+                <a href="../../2026/05/31/Java%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/">Java开发面试题</a>
+              </span>
+            </div>
+            
+            <div class="post-meta">
+              <span class="date">
+                <i class="fas fa-calendar-alt"></i>
+                2026-05-31
+              </span>
+              
+                <span class="category">
+                  <i class="fas fa-folder"></i>
+                  <a class="category-link" href="../../categories/%E9%9D%A2%E8%AF%95%E9%A2%98/">面试题</a>
+                </span>
+              
+            </div>
+            
+            <div class="post-excerpt">
+              一、Java基础1. 集合框架HashMap在JDK1.8的调整（红黑树引入）口语化表达：
+HashMap在JDK1.8最大的改动就是引入了红黑树。之前1.7的时候，hash冲突的元素都是用链表存的，链表查找是O(n)，如果冲突特别多，查找就特别慢。1.8就加了个优化：当链表长度超过8并且整个数组容量超过64的时候，链表就会转成红黑树，红黑树查找是O(logn)，快很多。当红黑树的节点减少到6的时...
+            </div>
+            
+            <div class="post-footer">
+              <a href="../../2026/05/31/Java%E5%BC%80%E5%8F%91%E9%9D%A2%E8%AF%95%E9%A2%98/" class="read-more">
+                <i class="fas fa-code"></i>
+                Read More
+              </a>
+            </div>
+          </div>
+        
+      </div>
+
       
 
     </div>
@@ -599,10 +411,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
 
 <!-- 添加所有需要的脚本 -->
-<script src="js/search.js"></script>
-<script src="js/theme-switch.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/theme-switch.js"></script>
 
-<script src="js/password-protect.js?v=1780901266389"></script>
+<script src="../../js/password-protect.js?v=1780901266393"></script>
 
     <script>
       // 移动端菜单切换
